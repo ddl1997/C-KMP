@@ -44,7 +44,7 @@ namespace KMP
                 }
                 else if (modIndex == 0)
                 {
-                    modIndex = 0;
+                    //modIndex = 0;
                     index++;
                 }
                 else
