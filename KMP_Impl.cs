@@ -16,9 +16,7 @@ namespace KMP
                 if (i == 0)
                     _next[i] = -1;
                 else
-                {
                     _next[i] = PrePostMaxLength(mod.Substring(i));
-                }
             }
         }
 
@@ -33,9 +31,7 @@ namespace KMP
                 for (; modIndex < _mod.Length; modIndex++, index++)
                 {
                     if (!Equals(_mod.ElementAt(modIndex), str.ElementAt(index)))
-                    {
                         break;
-                    }
                 }
                 if (modIndex == _mod.Length)
                 {
@@ -43,23 +39,19 @@ namespace KMP
                     break;
                 }
                 else if (modIndex == 0)
-                {
-                    //modIndex = 0;
                     index++;
-                }
                 else
-                {
                     modIndex = _next[modIndex];
-                }
             }
 
             return matchIndex;
         }
 
+        /* str.length = 1 => return 0 */
         public static int PrePostMaxLength(string str)
         {
             int max_length = 0;
-            for (int i = 1; i < str.Length; i++)
+            for (int i = 1; i < str.Length; i++) // 1 <= i <= str.length - 1
             {
                 if (string.Equals(str.Substring(0, i), str.Substring(str.Length - i, i)))
                     max_length = i;
